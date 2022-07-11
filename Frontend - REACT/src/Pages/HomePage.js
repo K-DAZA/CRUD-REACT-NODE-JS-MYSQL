@@ -11,7 +11,7 @@ export default function HomePage() {
     const [members, setMembers] = useState();        
 
     
-    // PETICIONES AXIOS - Backend
+    // PETICIONES AXIOS - 
 
 
 
