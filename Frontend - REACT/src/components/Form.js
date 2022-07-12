@@ -5,14 +5,18 @@ import Table from "./Table";
 import axios from "axios";
 
 export default function Form() {
+
     // COMPONENT STATES - Estados del Componente
     const [members, setMembers] = useState([]);
     const [name, setName] = useState("");
     const [lastname, setLastname] = useState("");
     const [success, setSuccess] = useState("");
 
-    // PETICIONES AXIOS - Backend GET, POST
+    // MANIPULACION DEL DOM
+    let inputName = document.getElementById("name");
+    let inputLastName = document.getElementById("lastname");
 
+    // PETICIONES AXIOS - Backend GET, POST
     // PETICION HTTP - POST
     const addMember = () => {
         try {
@@ -23,6 +27,9 @@ export default function Form() {
 
             console.log("Se ha añadido el estudiante correctamente a la BD!");
             setSuccess("Se añadió un miembro correctamente!");
+            inputName.value = "";
+            inputLastName.value = "";
+
         } catch (error) {
             console.log(error);
         }
@@ -40,6 +47,7 @@ export default function Form() {
             console.log(error);
         }
     };
+
 
     return (
         <div className="h-screen md:flex">
@@ -60,7 +68,7 @@ export default function Form() {
                     type="text"
                     className="form-control"
                     name=""
-                    id=""
+                    id="name"
                     onChange={(event) => setName(event.target.value)}
                 />
                 <label htmlFor="" className="text-3xl mt-5 font-bold">
@@ -71,7 +79,7 @@ export default function Form() {
                     type="text"
                     className="form-control"
                     name=""
-                    id=""
+                    id="lastname"
                     onChange={(event) => setLastname(event.target.value)}
                 />
 
