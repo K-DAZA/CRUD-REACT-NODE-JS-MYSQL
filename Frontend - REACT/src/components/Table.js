@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function Table() {
+export default function Table(props) {
+
+    // ALMACENANDO PROPS
+    const members = props.members;
+
     return (
         <div>
             <h1 className=" md:text-5xl font-bold p-5 text-white text-center">
@@ -16,21 +20,13 @@ export default function Table() {
                         </tr>
                     </thead>
                     <tbody className="table-group-divider">
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                        </tr>
+                        {members.map((items) => (
+                            <tr key={items.id}>
+                                <th scope="row">{items.id}</th>
+                                <td>{items.name}</td>
+                                <td>{items.lastname}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
