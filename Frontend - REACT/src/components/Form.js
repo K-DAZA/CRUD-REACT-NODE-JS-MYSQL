@@ -50,7 +50,7 @@ export default function Form() {
 
 
     return (
-        <div className="h-screen md:flex">
+        <div className="h-screen md:flex 2xl:overflow-hidden">
             <div className="h-full md:w-3/6 bg-white shadow-2xl shadow p-5">
                 <h1 className="md:text-5xl font-bold">
                     Formulario CRUD <i>React js</i>
@@ -70,6 +70,7 @@ export default function Form() {
                     name=""
                     id="name"
                     onChange={(event) => setName(event.target.value)}
+                    required
                 />
                 <label htmlFor="" className="text-3xl mt-5 font-bold">
                     2. Apellido :
@@ -81,24 +82,25 @@ export default function Form() {
                     name=""
                     id="lastname"
                     onChange={(event) => setLastname(event.target.value)}
+                    required
                 />
 
-                <h4 className="text-black mt-5">{ success }</h4>
+                <h4 className="text-black mt-5">{success}</h4>
                 <button
-                    className="btn btn-success mt-20 px-5 py-3"
+                    className="btn btn-success mt-20 md:px-5 py-3"
                     onClick={addMember}
                 >
                     <strong>Ingresar Persona</strong>
                 </button>
 
                 <button
-                    className="btn btn-primary lg:mt-20 px-5 py-3 ml-3"
+                    className="btn btn-primary mt-20 md:px-5 py-3 ml-3"
                     onClick={getMembers}
                 >
                     <strong>Ver miembros</strong>
                 </button>
 
-                <div className="flex">
+                <div className="flex overflow-hidden">
                     <img
                         src={react}
                         alt=""
